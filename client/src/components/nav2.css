@@ -1,0 +1,121 @@
+.NavBarItems{
+    background: linear-gradient(90deg,rgb(228, 122, 141) 0%, white 100%);
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.navbar-logo{
+    color:black;
+    justify-self: start;
+    margin-left: 20px;
+    cursor:pointer;
+}
+
+.fas fa-fan{
+  font-size: 1rem;  
+}
+
+.nav-menu{
+    display: grid;
+    grid-template-columns: repeat(10,auto);
+    grid-gap:10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: end;
+    margin-right: 2rem;
+
+}
+
+.nav-links{
+    color:rgb(24, 4, 10);
+    text-decoration: none;
+    padding: 0.5rem 1rem
+}
+
+.nav-links:hover{
+    background: #6d3e62;
+    color: papayawhip;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
+
+.nav-links-mobile{
+    display: none;
+}
+
+.fa-bars{
+color: rgb(24, 9, 53);
+}
+
+.menu-icon{
+    display: none;
+}
+
+
+@media screen and (max-width:960px){
+    .NavBarItems{
+        position: relative;
+    }
+
+    .nav-menu{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* height: 100vh; */
+        position: absolute;
+        top: 80px;
+        left:-100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .nav-menu.active{
+        background: linear-gradient(90deg,rgb(228, 122, 141) 0%, white 100%);
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav-links{
+        text-align: center;
+        padding:0.5rem;
+        width:100%; 
+        display: table;
+
+    }
+
+   .nav-links:hover {
+       background: rgb(138, 96, 138);
+       border-radius: 0;
+       }
+
+    .navbar-logo{
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform:translate(25%,50%) ;
+    }
+
+    .menu-icon{
+        display: block;
+        position: absolute;
+        top:0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .fa-times{
+        color: black;
+        font-size: 2rem;
+    }
+}
+    

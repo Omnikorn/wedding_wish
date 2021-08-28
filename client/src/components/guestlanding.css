@@ -1,0 +1,26 @@
+* {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    align-items: center;
+}
+
+.bg{
+    background-image: linear-gradient(to bottom, white, pink);
+    
+}
+
+.img{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.location{
+    max-width: 300px;
+    max-height: 200px;
+    
+}
+
+.clock{
+    max-height: 200px;
+    max-width: 300px;
+}

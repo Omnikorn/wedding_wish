@@ -1,0 +1,12 @@
+.heading{
+    font-family:ballada ;
+    font-size: 5rem;
+    margin-top: 5vh;
+}
+
+.bigcontainer{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("./newbg1.png");
+    background-position: center;
+}

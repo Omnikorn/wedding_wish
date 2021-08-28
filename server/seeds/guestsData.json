@@ -1,0 +1,47 @@
+[
+    {
+        "name":"dog1",
+        "email":"dog1@mail.com",
+        "rsvp":"yes",
+        "menu":"B",
+        "wedding_owner":"Harith Albadry"
+    },
+    {
+        "name":"dog2",
+        "email":"dog2@mail.com",
+        "rsvp":"yes",
+        "menu":"B",
+        "wedding_owner":"Harith Albadry"
+    },
+    {
+        "name":"dog3",
+        "email":"dog3@mail.com",
+        "rsvp":"no",
+        "menu":"A",
+        "wedding_owner":"Harith Albadry"
+    }
+    ,
+    {
+        "name":"cat1",
+        "email":"cat1@mail.com",
+        "rsvp":"yes",
+        "menu":"B",
+        "wedding_owner":"Dana Alami"
+    }
+    ,
+    {
+        "name":"cat2",
+        "email":"cat2@mail.com",
+        "rsvp":"yes",
+        "menu":"A",
+        "wedding_owner":"Dana Alami"
+    }
+    ,
+    {
+        "name":"cat3",
+        "email":"cat3@mail.com",
+        "rsvp":"yes",
+        "menu":"A",
+        "wedding_owner":"Dana Alami"
+    }
+]
