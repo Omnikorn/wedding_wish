@@ -35,15 +35,12 @@ function GuestWish() {
 	const [inputFields, setInputField] = useState([
 		{ item: "", website: "" },
 	])
+	const [loader, setloader] = useState(false)
 
-	// const [currentUser, setCurrentUser] = useState(null)
-	// const [currentID, setCurrentID] = useState(null)
-
+	
 	const [itemState, setItemState] = useState(null)
-	// const [correctGuest, setCorrectGuest] = useState([])
-	// const [loader, setloader] = useState(false)
-	// const [wishResult, setWishResult] = useState([])
-
+	const [wishList, setWishList]=useState([]) 
+	
 	const handleBuy = async (id) => {
 		setItemState(true)
 		const itemId = id
@@ -64,7 +61,7 @@ function GuestWish() {
 	const guestEmail = localStorage.getItem("guest")
 	console.log("the stored email is ", guestEmail)
 
-	const searchWishList = useQuery(WISH_QUERY)
+	// const searchWishList = useQuery(WISH_QUERY)
 	const update_item = useMutation(UPDATE_ITEM)
 	const searchguest = useQuery(GUEST_QUERY)
 	
@@ -84,11 +81,33 @@ console.log("the correct guest is", correct_guest)
 
 console.log("the wedding owner now is", correct_wedding_owner)
 
+const { loading, data } = useQuery(WISH_QUERY)
+useEffect(()=>{ if (data) {
+		setloader(true)
+		console.log("the WISH list is", data.wishes);
+		setWishList(data.wishes)
+		// const filteredWishList = data.wishes.filter((wish) => {
+		// return wish.wedding_owner == correct_wedding_owner
+		// setWishList({filteredWishList})
+		// console.log("the final wish list is", wishList)
+	}
+	// if (filteredWishList.lnegth){
+	// 	setWishList(filteredWishList)
+	// 	console.log("the final wish list is", wishList)
+	// 	setloader(false)
+	// }
 
 
-console.log("the wishlist now is ", searchWishList)
-const wish_list = searchWishList.data.wishes
-console.log("the wishlist now is ", wish_list)
+	
+},[data])
+	
+
+
+	// console.log("the filtered wish list is", filteredWishList)
+
+//console.log("the wishlist now is ", searchWishList)
+// const wish_list = searchWishList.data.wishes
+// console.log("the wishlist now is ", wish_list)
 
 		// if (data) {
 		// 	setloader(true)
@@ -125,9 +144,9 @@ console.log("the wishlist now is ", wish_list)
 
 	return (
 		<Container>
-			<h1>This is the happy couple's Wihs list</h1>
+			<h1>This is the happy couple's Wish list</h1>
 			<form className={classes.root}>
-				{wish_list.map((wish) => (
+				{wishList.map((wish) => (
 					<div key={wish._id}>
 						<TextField
 							name="item"
