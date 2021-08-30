@@ -32,8 +32,8 @@ function GuestLanding() {
     if (data) {
         setloader(true)
       const correctGuestResult = data.guests.filter((guest) => {
-        // return guest.email === guestEmail
-        return guest
+        return guest.email === guestEmail
+        // return guest
       })
       
     

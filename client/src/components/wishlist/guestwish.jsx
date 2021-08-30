@@ -44,6 +44,7 @@ return <p>LOADING</p>
 
 	const handleBuy = async (e,id) => {
 		e.preventDefault()
+		console.log("the buy button has been clicked")
 		setItemState(true)
 		const itemId = id
 		console.log("the item id is", itemId)
@@ -161,13 +162,15 @@ const filteredWishList = data.wishes.filter((wish) => {
 						<span>
 							{!wish.accquired && (
 								<a
-									
+									onClick={(e)=>handleBuy(wish._id,e)}
 									class="btn btn-danger"
 									href={`https://${wish.website}`}
 									target="_blank"
 								>
-									<i class="fa fa-shopping-cart fa-lg"></i>{" "}
-									BUY
+									
+										<i class="fa fa-shopping-cart fa-lg"></i>{" "}
+										BUY
+									
 								</a>
 							)}
 							{wish.accquired && (
