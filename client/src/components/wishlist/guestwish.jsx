@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react"
 import Container from "@material-ui/core/Container"
 import TextField from "@material-ui/core/TextField"
-// import Button from "@material-ui/core/Button"
-// import IconButton from "@material-ui/core/IconButton"
-// import RemoveIcon from "@material-ui/icons/Remove"
-// import AddIcon from "@material-ui/icons/Add"
-// import Icon from "@material-ui/core/Icon"
 
-// import Auth from "../../utils/auth"
 import {
-	WEDDING_QUERY,
+	
 	GUEST_QUERY,
 	WISH_QUERY,
 } from "../../utils/queries"
@@ -31,17 +25,25 @@ const useStyles = makeStyles((theme) => ({
 
 function GuestWish() {
 	const classes = useStyles()
-
-	const [inputFields, setInputField] = useState([
-		{ item: "", website: "" },
-	])
+	// const [inputFields, setInputField] = useState([
+	// 	{ item: "", website: "" },
+	// ])
 	const [loader, setloader] = useState(false)
-
-	
 	const [itemState, setItemState] = useState(null)
-	const [wishList, setWishList]=useState([]) 
-	
-	const handleBuy = async (id) => {
+	const [wishList, setWishList]=useState([])
+	const update_item=useMutation(UPDATE_ITEM) 
+	const searchguest = useQuery(GUEST_QUERY)
+	const { loading, data } = useQuery(WISH_QUERY)
+if (loading) {
+return <p>LOADING</p>
+}
+		
+		console.log("the WISH list is", data.wishes);
+		
+
+
+	const handleBuy = async (e,id) => {
+		e.preventDefault()
 		setItemState(true)
 		const itemId = id
 		console.log("the item id is", itemId)
@@ -62,8 +64,8 @@ function GuestWish() {
 	console.log("the stored email is ", guestEmail)
 
 	// const searchWishList = useQuery(WISH_QUERY)
-	const update_item = useMutation(UPDATE_ITEM)
-	const searchguest = useQuery(GUEST_QUERY)
+	
+	
 	
 
 const guestlist = searchguest.data.guests
@@ -81,16 +83,12 @@ console.log("the correct guest is", correct_guest)
 
 console.log("the wedding owner now is", correct_wedding_owner)
 
-const { loading, data } = useQuery(WISH_QUERY)
-useEffect(()=>{ if (data) {
-		setloader(true)
-		console.log("the WISH list is", data.wishes);
-		setWishList(data.wishes)
-		// const filteredWishList = data.wishes.filter((wish) => {
-		// return wish.wedding_owner == correct_wedding_owner
-		// setWishList({filteredWishList})
-		// console.log("the final wish list is", wishList)
-	}
+// useEffect (() )
+const filteredWishList = data.wishes.filter((wish) => {
+		return wish.wedding_owner == correct_wedding_owner
+		
+		})
+		console.log("the final wish list is", filteredWishList)
 	// if (filteredWishList.lnegth){
 	// 	setWishList(filteredWishList)
 	// 	console.log("the final wish list is", wishList)
@@ -99,7 +97,7 @@ useEffect(()=>{ if (data) {
 
 
 	
-},[data])
+
 	
 
 
@@ -146,7 +144,7 @@ useEffect(()=>{ if (data) {
 		<Container>
 			<h1>This is the happy couple's Wish list</h1>
 			<form className={classes.root}>
-				{wishList.map((wish) => (
+				{filteredWishList.map((wish) => (
 					<div key={wish._id}>
 						<TextField
 							name="item"
@@ -163,7 +161,7 @@ useEffect(()=>{ if (data) {
 						<span>
 							{!wish.accquired && (
 								<a
-									onClick={handleBuy(wish._id)}
+									
 									class="btn btn-danger"
 									href={`https://${wish.website}`}
 									target="_blank"
