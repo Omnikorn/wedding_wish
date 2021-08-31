@@ -38,7 +38,7 @@ const CoupleMenuItem =  [
         cName:'nav-links'
     },
     {
-        label:'Wedding',
+        label:'My Wedding',
         url:'/viewwedding',
         cName:'nav-links'
     },
