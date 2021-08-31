@@ -84,7 +84,8 @@ export default function SignIn() {
             const {data} = await addUser({
                 variables:{...userFormData}
             })
-            history.push("/home")
+			window.relocation("#/home")
+            // history.push("/home")
         } catch (error){
             console.log(error)
         }

@@ -162,7 +162,7 @@ const filteredWishList = data.wishes.filter((wish) => {
 						<span>
 							{!wish.accquired && (
 								<a
-									onClick={(e)=>handleBuy(wish._id,e)}
+									
 									class="btn btn-danger"
 									href={`https://${wish.website}`}
 									target="_blank"
