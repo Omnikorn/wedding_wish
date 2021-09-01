@@ -19,14 +19,11 @@ import Auth from "../utils/auth"
 import { usePartyContext } from "../utils/partycontext"
 import { useHistory } from "react-router-dom"
 
-
 const useStyles = makeStyles((theme) => ({
 	root: {
 		height: "100vh",
 	},
 	image: {
-		
-		
 		backgroundRepeat: "no-repeat",
 		backgroundColor:
 			theme.palette.type === "light"
@@ -58,7 +55,6 @@ export default function SignIn() {
 	const classes = useStyles()
 	const history = useHistory()
 	const { organiser, setOrganiser } = usePartyContext()
-	
 
 	// console.log("first set of organisers=" , organiser)
 
@@ -99,7 +95,9 @@ export default function SignIn() {
 			// )
 
 			Auth.login(data.login.token, newuser)
-			// history.push("/guest")
+			
+			// history.push("/viewwedding")
+
 		} catch (e) {
 			console.error(e)
 		}

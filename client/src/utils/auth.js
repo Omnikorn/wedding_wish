@@ -43,7 +43,7 @@ class AuthService {
 		localStorage.setItem("id_token", idToken)
 		localStorage.setItem("user", JSON.stringify(newuser))
 
-		window.location.assign("/")
+		window.location.assign("#/viewwedding")
 	}
 
 	logout() {
